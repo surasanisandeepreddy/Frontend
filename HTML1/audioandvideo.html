@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Band Music Player</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<style>
+    body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.music-player {
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 10px;
+}
+
+img#albumArt {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+img#albumArt.playing {
+  animation: rotateArt 4s linear infinite;
+}
+
+@keyframes rotateArt {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+button:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none;
+}
+
+.dark-theme {
+  background-color: #1a1a1a;
+  color: #eee;
+}
+
+video#bgVideo {
+  width: 100%;
+  max-height: 300px;
+  margin-top: 20px;
+}
+</style>
+<body>
+  <div class="theme-toggle">
+    <button id="toggleTheme">Toggle Theme</button>
+  </div>
+
+  <div class="music-player">
+    <h2>🎶 Now Playing: <span id="nowPlaying">None</span></h2>
+
+    <img src="C:\Users\kavit\Downloads\viral image.jpg" alt="Album Art" id="albumArt" />
+
+    <audio id="audioPlayer" controls>
+      <source src="c:\Users\kavit\Downloads\Viral Vayyari (Kannada) Lyrical Video _ Junior Movie _ Kireeti, Sreeleela _ Radha Krishna _ DSP.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="audioPlayer2" hidden>
+      <source src="song2.mp3" type="audio/mp3" />
+    </audio>
+
+    <button id="playRandom">Play Random Song</button>
+  </div>
+
+  <div class="toast" id="toastMsg">Now playing: Song</div>
+
+  <video autoplay muted loop id="bgVideo">
+    <source src="c:\Users\kavit\Downloads\Viral Vayyari (Kannada) Lyrical Video _ Junior Movie _ Kireeti, Sreeleela _ Radha Krishna _ DSP.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <script src="script.js"></script>
+</body>
+</html>

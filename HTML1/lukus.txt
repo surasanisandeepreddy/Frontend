@@ -1,0 +1,9 @@
+<!--
+code for colors and font size
+-->
+<!doctype html>
+<html>
+<body>
+<p style="color:red">Kelita Sasya</p>
+<p style="color:blue">llin Lasya Lukus</p>
+<p style="font-size:40px">

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Band Music Player</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+  <div class="container">
+    <h1>🎸 Band Music Player</h1>
+
+    <div id="player">
+      <audio id="song1" src="song1.mp3" preload="auto"></audio>
+      <audio id="song2" src="song2.mp3" preload="auto"></audio>
+
+      <img id="albumArt" src="default.jpg" alt="Album Art">
+
+      <div class="controls">
+        <button onclick="playRandom()">▶️ Play Random Song</button>
+        <button onclick="toggleTheme()">🌓 Toggle Theme</button>
+      </div>
+
+      <p id="nowPlaying">Now Playing: None</p>
+    </div>
+
+    <video autoplay muted loop id="backgroundVideo">
+      <source src="concert.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div id="toast" class="hidden">Now Playing: 🎶</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

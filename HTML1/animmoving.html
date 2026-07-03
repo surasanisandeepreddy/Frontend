@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Box Animation</title>
+    <style>
+        .box-1 {
+            position: relative;
+            border: 2px solid black;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            animation-name: ani;
+            animation-duration:5s; 
+            animation-iteration-count: 3; 
+            animation-timing-function: ease-in-out;
+        }
+  
+        @keyframes anim{
+            0% {
+                background-color: aqua;
+                top: 0px;
+                left: 100px;
+            }
+
+            25% {
+                background-color:aquamarine;
+                top: 0px;
+                left: 300px; 
+            }  
+            50%{
+                background-color: beige;
+                top: 200px;
+                left: 500px;
+            }
+            75%{
+                background-color:burlywood;
+                top: 200px;
+                left: 100px;
+            }
+            100%{
+                background-color: lightslategray;
+                top: 0px;
+                left: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+        <div class="box-1">Box</div>
+</body>
+
+</html>
