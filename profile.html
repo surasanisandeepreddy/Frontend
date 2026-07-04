@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management Portal</title>
+
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #879de6;
+    }
+
+    header {
+        background-color: #7188a1;
+        color: rgb(103, 139, 168);
+        text-align: center;
+        padding: 20px;
+    }
+
+    nav {
+        background-color: #e7e5e5;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: flex;
+    }
+
+    nav a {
+        color: rgb(22, 19, 19);
+        text-decoration: none;
+        padding: 15px;
+    }
+
+    nav a:hover {
+        background-color: orange;
+    }
+
+    .login {
+        display: flex;
+        gap: 10px;
+    }
+
+    .hero {
+        background: linear-gradient(to right, #0f1516, #6dd5ed);
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .hero h2 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: green;
+    }
+
+    #heading {
+        text-align: center;
+        margin: 40px 0 20px;
+        color: #333;
+    }
+
+    #students {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .card {
+        width: 260px;
+        background: white;
+        border-radius: 10px;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 0 10px gray;
+        transition: 0.4s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card img {
+        width: 120px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    .courses {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 30px;
+    }
+
+    .course {
+        background: white;
+        padding: 30px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+        font-size: 22px;
+    }
+
+    form {
+        width: 400px;
+        margin: 40px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+    }
+
+    @media (max-width:768px) {
+        nav {
+            flex-direction: column;
+        }
+
+        .nav-links {
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login {
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .courses {
+            grid-template-columns: 1fr;
+        }
+
+        form {
+            width: 90%;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<header>
+    <h1>Student Management Portal</h1>
+    <p>Learn • Practice • Grow</p>
+</header>
+
+<nav>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#students">Students</a>
+        <a href="#heading">Courses</a>
+        <a href="#cont">Contact</a>
+    </div>
+
+```
+<div class="login">
+    <a href="#login"><button>Login</button></a>
+    <a href="#register"><button>Register</button></a>
+</div>
+```
+
+</nav>
+
+<section class="hero">
+    <h2>Welcome to Student Management Portal</h2>
+    <p>Learn HTML and CSS by building beautiful web pages.</p>
+    <button>Explore Courses</button>
+</section>
+
+<h2 id="heading">Top Students</h2>
+
+<section id="students">
+    <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaxjlpB7iwtPpZwPJyu5bhTUW450oBRJpVQRVv9O4_OA&s=10">
+        <h3>Bhargavi</h3>
+        <p>Web Development</p>
+        <button>View Profile</button>
+    </div>
+
+```
+<div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz_rXSH5tV_ZgB0ppo3Fm-j1Hu72_5EP-72bh_we3EBg&s=10">
+    <h3>Rahul</h3>
+    <p>Java Full Stack</p>
+    <button>View Profile</button>
+</div>
+
+<div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0oMlnpeIkQlgd2ahWTIoTzwDUNczaKNlI972ebhPKqg&s=10">
+    <h3>Anjali</h3>
+    <p>Python Programming</p>
+    <button>View Profile</button>
+</div>
+```
+
+</section>
+
+<h2 id="heading">Available Courses</h2>
+
+<section class="courses">
+    <div class="course">HTML</div>
+    <div class="course">CSS</div>
+    <div class="course">JavaScript</div>
+    <div class="course">React</div>
+    <div class="course">Java</div>
+    <div class="course">Python</div>
+</section>
+
+<!-- Login Section -->
+
+<h2 id="heading" id="login">Login</h2>
+
+<form>
+    <label>Email</label>
+    <input type="email" placeholder="Enter Email">
+
+```
+<label>Password</label>
+<input type="password" placeholder="Enter Password">
+
+<button type="submit">Login</button>
+```
+
+</form>
+
+<!-- Register Section -->
+
+<h2 id="heading" id="register">Student Registration Form</h2>
+
+<form>
+    <label>Student Name</label>
+    <input type="text" placeholder="Enter Name">
+
+```
+<label>Email</label>
+<input type="email" placeholder="Enter Email">
+
+<label>Age</label>
+<input type="number" placeholder="Enter Age">
+
+<label>Select Course</label>
+<select>
+    <option>HTML</option>
+    <option>CSS</option>
+    <option>JavaScript</option>
+    <option>Java</option>
+    <option>Python</option>
+</select>
+
+<label>Address</label>
+<textarea rows="4" placeholder="Enter Address"></textarea>
+
+<button type="submit">Register</button>
+```
+
+</form>
+
+<footer>
+    <p id="cont">© 2026 Student Management Portal | Designed using HTML & CSS</p>
+</footer>
+
+</body>
+</html>
