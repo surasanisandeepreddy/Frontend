@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript DOM & Events</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f2f2f2;
+padding:20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+color:#0066cc;
+}
+
+.container{
+width:80%;
+margin:auto;
+}
+
+.section{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+}
+
+button{
+
+padding:10px 20px;
+
+margin:5px;
+
+background:#0066cc;
+
+color:white;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:5px;
+
+}
+
+button:hover{
+
+background:rgb(15, 75, 15);
+
+}
+
+input{
+
+padding:10px;
+
+width:250px;
+
+margin:10px;
+
+}
+
+.box{
+
+width:250px;
+
+height:120px;
+
+background:rgb(119, 170, 228);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:20px;
+
+margin-top:20px;
+
+}
+
+.dark{
+
+background:black;
+
+color:white;
+
+}
+
+.student{
+
+background:#dff0ff;
+
+padding:10px;
+
+margin:10px;
+
+border-radius:5px;
+
+}
+
+.parent{
+
+padding:50px;
+
+background:lightblue;
+
+}
+
+.child{
+
+padding:30px;
+
+background:orange;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 id="title">JavaScript DOM & Events</h1>
+
+<div class="container">
+
+<div class="section">
+
+<h2>1. getElementById()</h2>
+
+<p id="demo">
+Welcome Students
+</p>
+
+<button onclick="changeText()">
+Change Text
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>2. querySelector()</h2>
+
+<p class="course">
+HTML
+</p>
+
+<button onclick="changeColor()">
+Change Color
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>3. Manipulating DOM</h2>
+
+<div class="box" id="box">
+
+Hello
+
+</div>
+
+<br>
+
+<button onclick="changeBox()">
+Change Box
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>4. Event Listener</h2>
+
+<button id="clickBtn">
+
+Click Me
+
+</button>
+
+<p id="message"></p>
+
+</div>
+
+<div class="section">
+
+<h2>5. Add Student</h2>
+
+<input
+type="text"
+id="studentName"
+placeholder="Enter Name">
+
+<button onclick="addStudent()">
+
+Add
+
+</button>
+
+<div id="studentList">
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>6. Dark Mode</h2>
+
+<button onclick="darkMode()">
+
+Dark Mode
+
+</button>
+
+<button onclick="lightMode()">
+
+Light Mode
+
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>7. Hide / Show</h2>
+
+<p id="hideText">
+
+JavaScript DOM Example
+
+</p>
+
+<button onclick="hideText()">
+
+Hide
+
+</button>
+
+<button onclick="showText()">
+
+Show
+
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>8. Event Bubbling</h2>
+
+<div class="parent" id="parent">
+
+Parent
+
+<div class="child" id="child">
+
+Child
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* ==========================================
+   1. getElementById()
+========================================== */
+
+function changeText(){
+
+document.getElementById("demo").innerHTML="Welcome JavaScript Students";
+
+}
+
+
+/* ==========================================
+   2. querySelector()
+========================================== */
+
+function changeColor(){
+
+document.querySelector(".course").style.color="red";
+
+document.querySelector(".course").style.fontSize="30px";
+
+}
+
+
+/* ==========================================
+   3. DOM Manipulation
+========================================== */
+
+function changeBox(){
+
+let box=document.getElementById("box");
+
+box.innerHTML="DOM Changed";
+
+box.style.background="green";
+
+box.style.color="white";
+
+box.style.borderRadius="20px";
+
+}
+
+
+/* ==========================================
+   4. Event Listener
+========================================== */
+
+let button=document.getElementById("clickBtn");
+
+button.addEventListener("click",function(){
+
+document.getElementById("message").innerHTML="Button Clicked Successfully";
+
+});
+
+
+/* ==========================================
+   5. Add Student
+========================================== */
+
+let students=[];
+
+function addStudent(){
+
+let name=document.getElementById("studentName").value;
+
+if(name==""){
+
+alert("Enter Student Name");
+
+return;
+
+}
+
+students.push(name);
+
+displayStudents();
+
+document.getElementById("studentName").value="";
+
+}
+
+
+function displayStudents(){
+
+let output="";
+
+students.forEach(function(student,index){
+
+output+=`
+
+<div class="student">
+
+<h3>Student ${index+1}</h3>
+
+<p>${student}</p>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("studentList").innerHTML=output;
+
+}
+
+
+/* ==========================================
+   6. Dark Mode
+========================================== */
+
+function darkMode(){
+
+document.body.classList.add("dark");
+
+}
+
+function lightMode(){
+
+document.body.classList.remove("dark");
+
+}
+
+
+/* ==========================================
+   7. Hide & Show
+========================================== */
+
+function hideText(){
+
+document.getElementById("hideText").style.display="none";
+
+}
+
+function showText(){
+
+document.getElementById("hideText").style.display="block";
+
+}
+/* ==========================================
+   8. getElementsByClassName()
+========================================== */
+
+function changeAllCourses(){
+
+let courses = document.getElementsByClassName("course");
+
+for(let i=0;i<courses.length;i++){
+
+courses[i].style.color="blue";
+courses[i].style.fontSize="30px";
+
+}
+
+}
+
+
+/* ==========================================
+   9. getElementsByTagName()
+========================================== */
+
+function changeParagraphs(){
+
+let paragraphs = document.getElementsByTagName("p");
+
+for(let i=0;i<paragraphs.length;i++){
+
+paragraphs[i].style.background="yellow";
+
+}
+
+}
+
+
+/* ==========================================
+   10. querySelectorAll()
+========================================== */
+
+function changeStudents(){
+
+let studentCards = document.querySelectorAll(".student");
+
+studentCards.forEach(function(card){
+
+card.style.background="lightgreen";
+
+card.style.border="2px solid green";
+
+});
+
+}
+
+
+/* ==========================================
+   11. Event Bubbling
+========================================== */
+
+document.getElementById("parent")
+
+.addEventListener("click",function(){
+
+alert("Parent Clicked");
+
+});
+
+document.getElementById("child")
+
+.addEventListener("click",function(){
+
+alert("Child Clicked");
+
+});
+
+
+</script>
+
+</body>
+
+</html>
